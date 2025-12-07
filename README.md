@@ -1,11 +1,8 @@
-对于题2，在检测图形的过程中，一开始使用canny边缘检测的方法
-**edges=cv2.Canny(blur,10,30)**
-**contours=cv2.findContours(edges,cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)**
-检测出来的结果显示只有两个图形，
-原因在于画布上画的图案颜色太浅，没被检测到
-所以采用全图二值化的方法将图案转成黑白,经cv2.CHAIN_APPROX_SIMPLE反转后将大于180的输出为黑，小于180的输出为白
-第三题用质心公式
-**cx = int(M["m10"] / M["m00"])，cy = int(M["m01"] / M["m00"])**
-找到中心点的坐标（cx，cy），继而在质心上标序号
-对于第四题，我一开始做的步骤是对两张图进行灰度化和二值化，这是为了让轮廓清晰可见。然后使用 findContours 提取轮廓，再用 matchShapes 比较模板和原图中每个轮廓的形状相似度。相似度越小形状越接近，因此当 score 小于设定阈值时，我就把这个区域框选出来。最终实现找到大小不同但形状相同的图形，
-因为find.contour时要用二值化后的黑白图进行操作，但题目要求在原图中框选相似图形，所以想到获取相似图形的坐标，继而在原图上框（因为原图和黑白图尺寸一样)
+注意事项
+
+1. 代码需要规范，添加必要的注释
+2. README 文档需清晰说明实现思路
+3. 确保所有图片输出清晰可见
+4. 上传流程参考：fork -> git clone -> git add -> git commit -m "备注" -> git push origin main -> pull request
+5. 在GitHub上提交Pull Request时，标题格式：`班级-姓名`
+6. 大家注意好安排时间，考核会在12月7日截止
